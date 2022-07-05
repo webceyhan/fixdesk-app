@@ -1,9 +1,19 @@
 <script setup>
-import { Link } from '@inertiajs/inertia-vue3';
+import { Link } from "@inertiajs/inertia-vue3";
+defineProps(["href"]);
 </script>
 
 <template>
-    <Link class="block w-full px-4 py-2 text-left text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out">
+    <button
+        type="submit"
+        @click="$emit('clicked')"
+        class="dropdown-item px-4"
+        v-if="!href"
+    >
+        <slot />
+    </button>
+
+    <Link :href="href" class="dropdown-item px-4" v-else>
         <slot />
     </Link>
 </template>
