@@ -1,9 +1,5 @@
 <script setup>
 import { ref } from "vue";
-import BreezeApplicationLogo from "@/Components/ApplicationLogo.vue";
-import BreezeDropdown from "@/Components/Dropdown.vue";
-import BreezeDropdownLink from "@/Components/DropdownLink.vue";
-import BreezeNavLink from "@/Components/NavLink.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 
 const showingNavigationDropdown = ref(false);
@@ -18,7 +14,7 @@ const showingNavigationDropdown = ref(false);
                 <!-- Logo -->
                 <a class="navbar-brand" href="/">
                     <Link :href="route('dashboard')">
-                        <breeze-application-logo width="36" />
+                        <ApplicationLogo width="36" />
                     </Link>
                 </a>
                 <button
@@ -39,18 +35,18 @@ const showingNavigationDropdown = ref(false);
                 >
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
-                        <breeze-nav-link
+                        <NavLink
                             :href="route('dashboard')"
                             :active="route().current('dashboard')"
                         >
                             Dashboard
-                        </breeze-nav-link>
+                        </NavLink>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav align-items-baseline">
                         <!-- Authentication Links -->
-                        <breeze-dropdown id="settingsDropdown">
+                        <Dropdown id="settingsDropdown">
                             <template #trigger>
                                 {{ $page.props.auth.user.name }}
 
@@ -71,15 +67,15 @@ const showingNavigationDropdown = ref(false);
 
                             <template #content>
                                 <!-- Authentication -->
-                                <breeze-dropdown-link
+                                <DropdownLink
                                     :href="route('logout')"
                                     method="post"
                                     as="button"
                                 >
                                     Log Out
-                                </breeze-dropdown-link>
+                                </DropdownLink>
                             </template>
-                        </breeze-dropdown>
+                        </Dropdown>
                     </ul>
                 </div>
             </div>

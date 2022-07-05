@@ -1,12 +1,12 @@
 <script setup>
-import BreezeAuthenticatedLayout from "@/Layouts/Authenticated.vue";
+import AuthenticatedLayout from "@/Layouts/Authenticated.vue";
 import { Head } from "@inertiajs/inertia-vue3";
 </script>
 
 <template>
     <Head title="Dashboard" />
 
-    <breeze-authenticated-layout>
+    <AuthenticatedLayout>
         <template #header>
             <h2 class="h4 font-weight-bold">Dashboard</h2>
         </template>
@@ -14,5 +14,5 @@ import { Head } from "@inertiajs/inertia-vue3";
         <div class="card my-4 shadow-sm">
             <div class="card-body">You're logged in!</div>
         </div>
-    </breeze-authenticated-layout>
+    </AuthenticatedLayout>
 </template>

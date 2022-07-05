@@ -1,9 +1,5 @@
 <script setup>
-import BreezeButton from "@/Components/Button.vue";
-import BreezeGuestLayout from "@/Layouts/Guest.vue";
-import BreezeInput from "@/Components/Input.vue";
-import BreezeLabel from "@/Components/Label.vue";
-import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+import GuestLayout from "@/Layouts/Guest.vue";
 import { Head, useForm } from "@inertiajs/inertia-vue3";
 
 defineProps({
@@ -20,7 +16,7 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <GuestLayout>
         <Head title="Forgot Password" />
 
         <div class="card-body">
@@ -34,12 +30,12 @@ const submit = () => {
                 {{ status }}
             </div>
 
-            <breeze-validation-errors class="mb-2" />
+            <ValidationErrors class="mb-2" />
 
             <form @submit.prevent="submit">
                 <div>
-                    <breeze-label for="email" value="Email" />
-                    <breeze-input
+                    <Label for="email" value="Email" />
+                    <Input
                         id="email"
                         type="email"
                         v-model="form.email"
@@ -49,7 +45,7 @@ const submit = () => {
                 </div>
 
                 <div class="d-flex justify-content-end mt-4">
-                    <breeze-button
+                    <Button
                         :class="{ 'text-white-50': form.processing }"
                         :disabled="form.processing"
                     >
@@ -62,9 +58,9 @@ const submit = () => {
                         </div>
 
                         Email Password Reset Link
-                    </breeze-button>
+                    </Button>
                 </div>
             </form>
         </div>
-    </BreezeGuestLayout>
+    </GuestLayout>
 </template>

@@ -1,10 +1,5 @@
 <script setup>
-import BreezeButton from "@/Components/Button.vue";
-import BreezeCheckbox from "@/Components/Checkbox.vue";
-import BreezeGuestLayout from "@/Layouts/Guest.vue";
-import BreezeInput from "@/Components/Input.vue";
-import BreezeLabel from "@/Components/Label.vue";
-import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+import GuestLayout from "@/Layouts/Guest.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 
 defineProps({
@@ -26,11 +21,11 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <GuestLayout>
         <Head title="Log in" />
 
         <div class="card-body">
-            <breeze-validation-errors class="mb-3" />
+            <ValidationErrors class="mb-3" />
 
             <div
                 v-if="status"
@@ -42,8 +37,8 @@ const submit = () => {
 
             <form @submit.prevent="submit">
                 <div class="mb-3">
-                    <breeze-label for="email" value="Email" />
-                    <breeze-input
+                    <Label for="email" value="Email" />
+                    <Input
                         id="email"
                         type="email"
                         v-model="form.email"
@@ -53,8 +48,8 @@ const submit = () => {
                 </div>
 
                 <div class="mb-3">
-                    <breeze-label for="password" value="Password" />
-                    <breeze-input
+                    <Label for="password" value="Password" />
+                    <Input
                         id="password"
                         type="password"
                         v-model="form.password"
@@ -65,7 +60,7 @@ const submit = () => {
 
                 <div class="mb-3">
                     <div class="form-check">
-                        <breeze-checkbox
+                        <Checkbox
                             id="remember_me"
                             name="remember"
                             v-model:checked="form.remember"
@@ -89,7 +84,7 @@ const submit = () => {
                             Forgot your password?
                         </Link>
 
-                        <breeze-button
+                        <Button
                             class="ms-4"
                             :class="{ 'text-white-50': form.processing }"
                             :disabled="form.processing"
@@ -103,10 +98,10 @@ const submit = () => {
                             </div>
 
                             Log in
-                        </breeze-button>
+                        </Button>
                     </div>
                 </div>
             </form>
         </div>
-    </BreezeGuestLayout>
+    </GuestLayout>
 </template>

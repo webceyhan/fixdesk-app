@@ -1,9 +1,5 @@
 <script setup>
-import BreezeButton from "@/Components/Button.vue";
-import BreezeGuestLayout from "@/Layouts/Guest.vue";
-import BreezeInput from "@/Components/Input.vue";
-import BreezeLabel from "@/Components/Label.vue";
-import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+import GuestLayout from "@/Layouts/Guest.vue";
 import { Head, Link, useForm } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
@@ -22,16 +18,16 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <GuestLayout>
         <Head title="Register" />
 
         <div class="card-body">
-            <breeze-validation-errors class="mb-3" />
+            <ValidationErrors class="mb-3" />
 
             <form @submit.prevent="submit">
                 <div class="mb-3">
-                    <breeze-label for="name" value="Name" />
-                    <breeze-input
+                    <Label for="name" value="Name" />
+                    <Input
                         id="name"
                         type="text"
                         v-model="form.name"
@@ -42,8 +38,8 @@ const submit = () => {
                 </div>
 
                 <div class="mb-3">
-                    <breeze-label for="email" value="Email" />
-                    <breeze-input
+                    <Label for="email" value="Email" />
+                    <Input
                         id="email"
                         type="email"
                         v-model="form.email"
@@ -52,8 +48,8 @@ const submit = () => {
                 </div>
 
                 <div class="mb-3">
-                    <breeze-label for="password" value="Password" />
-                    <breeze-input
+                    <Label for="password" value="Password" />
+                    <Input
                         id="password"
                         type="password"
                         v-model="form.password"
@@ -63,11 +59,11 @@ const submit = () => {
                 </div>
 
                 <div class="mb-3">
-                    <breeze-label
+                    <Label
                         for="password_confirmation"
                         value="Confirm Password"
                     />
-                    <breeze-input
+                    <Input
                         id="password_confirmation"
                         type="password"
                         v-model="form.password_confirmation"
@@ -87,7 +83,7 @@ const submit = () => {
                             Already registered?
                         </Link>
 
-                        <breeze-button
+                        <Button
                             class="ms-4"
                             :class="{ 'text-white-50': form.processing }"
                             :disabled="form.processing"
@@ -101,10 +97,10 @@ const submit = () => {
                             </div>
 
                             Register
-                        </breeze-button>
+                        </Button>
                     </div>
                 </div>
             </form>
         </div>
-    </BreezeGuestLayout>
+    </GuestLayout>
 </template>

@@ -1,9 +1,5 @@
 <script setup>
-import BreezeButton from "@/Components/Button.vue";
-import BreezeGuestLayout from "@/Layouts/Guest.vue";
-import BreezeInput from "@/Components/Input.vue";
-import BreezeLabel from "@/Components/Label.vue";
-import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+import GuestLayout from "@/Layouts/Guest.vue";
 import { Head, useForm } from "@inertiajs/inertia-vue3";
 
 const props = defineProps({
@@ -26,16 +22,16 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <GuestLayout>
         <Head title="Reset Password" />
 
         <div class="card-body">
-            <breeze-validation-errors class="mb-3" />
+            <ValidationErrors class="mb-3" />
 
             <form @submit.prevent="submit">
                 <div class="mb-3">
-                    <breeze-label for="email" value="Email" />
-                    <breeze-input
+                    <Label for="email" value="Email" />
+                    <Input
                         id="email"
                         type="email"
                         v-model="form.email"
@@ -45,8 +41,8 @@ const submit = () => {
                 </div>
 
                 <div class="mb-3">
-                    <breeze-label for="password" value="Password" />
-                    <breeze-input
+                    <Label for="password" value="Password" />
+                    <Input
                         id="password"
                         type="password"
                         v-model="form.password"
@@ -56,11 +52,11 @@ const submit = () => {
                 </div>
 
                 <div class="mb-3">
-                    <breeze-label
+                    <Label
                         for="password_confirmation"
                         value="Confirm Password"
                     />
-                    <breeze-input
+                    <Input
                         id="password_confirmation"
                         type="password"
                         v-model="form.password_confirmation"
@@ -71,7 +67,7 @@ const submit = () => {
 
                 <div class="mb-0">
                     <div class="d-flex justify-content-end">
-                        <breeze-button
+                        <Button
                             :class="{ 'text-white-50': form.processing }"
                             :disabled="form.processing"
                         >
@@ -84,10 +80,10 @@ const submit = () => {
                             </div>
 
                             Reset Password
-                        </breeze-button>
+                        </Button>
                     </div>
                 </div>
             </form>
         </div>
-    </BreezeGuestLayout>
+    </GuestLayout>
 </template>

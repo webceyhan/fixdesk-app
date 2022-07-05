@@ -1,9 +1,5 @@
 <script setup>
-import BreezeButton from "@/Components/Button.vue";
-import BreezeGuestLayout from "@/Layouts/Guest.vue";
-import BreezeInput from "@/Components/Input.vue";
-import BreezeLabel from "@/Components/Label.vue";
-import BreezeValidationErrors from "@/Components/ValidationErrors.vue";
+import GuestLayout from "@/Layouts/Guest.vue";
 import { Head, useForm } from "@inertiajs/inertia-vue3";
 
 const form = useForm({
@@ -18,7 +14,7 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <GuestLayout>
         <Head title="Confirm Password" />
 
         <div class="card-body">
@@ -27,12 +23,12 @@ const submit = () => {
                 password before continuing.
             </div>
 
-            <breeze-validation-errors class="mb-2" />
+            <ValidationErrors class="mb-2" />
 
             <form @submit.prevent="submit">
                 <div class="mb-3">
-                    <breeze-label for="password" value="Password" />
-                    <breeze-input
+                    <Label for="password" value="Password" />
+                    <Input
                         id="password"
                         type="password"
                         v-model="form.password"
@@ -43,7 +39,7 @@ const submit = () => {
                 </div>
 
                 <div class="d-flex justify-content-end mt-2">
-                    <breeze-button
+                    <Button
                         class="ms-4"
                         :class="{ 'text-white-50': form.processing }"
                         :disabled="form.processing"
@@ -57,9 +53,9 @@ const submit = () => {
                         </div>
 
                         Confirm
-                    </breeze-button>
+                    </Button>
                 </div>
             </form>
         </div>
-    </BreezeGuestLayout>
+    </GuestLayout>
 </template>
